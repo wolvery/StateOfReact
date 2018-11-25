@@ -23,9 +23,9 @@ class App extends Component {
     return this.state.x + this.state.y + this.state.z;
   }
   loadXYZ() {
-    this.setState({x: value1,
-                   y: value2,
-                   z: value3});
+    this.setState({x: Math.floor(Math.random() * 100),
+                   y: Math.floor(Math.random() * 100),
+                   z: Math.floor(Math.random() * 100)});
   }
   loadProposedAnswer() {
     this.setState({proposedAnswer : Math.floor(Math.random() * 3) + this.state.x + this.state.y + this.state.z});
@@ -54,8 +54,8 @@ class App extends Component {
           <div className="equation">
             <p className="text">{`${this.state.x} + ${this.state.y} + ${this.state.z} = ${this.state.proposedAnswer}`}</p>
           </div>
-          <button onClick={this.registryChoice(true)}>True</button>
-          <button onClick={this.registryChoice(false)}>False</button>
+          <button onClick={() => this.registryChoice(true)}>True</button>
+          <button onClick={() => this.registryChoice(false)}>False</button>
           <p className="text">
             Your Score: {this.state.numCorrect}/{this.state.numQuestions}
           </p>
